@@ -1,73 +1,59 @@
-# Project Details Template
+# Project Details
+*(Note: The AISaE by Design Framework does not provide legal or regulatory advice. Developers should ensure they adhere to all legal and regulatory requirements for their development work)*
+
 
 ## Project Context
 *(These details are project-specific and will not be included in any reusable patterns)*
 
-**Title**
-- <!--%PROJ_NAME-->MedAssist AI: Primary Care Diagnostic Support System
-- <!--%PROJ_ID-->PROJ-2024-001
+**Project Name** (full title of your project)
+<!--%PROJ_NAME-->MedAssist AI: Clinical Decision Support System
 
-**Team/Organisation**
-- Lead organisation: HealthTech Innovations Ltd
-- Primary contact: Dr Sarah Chen, Chief Medical Officer (s.chen@healthtech-innovations.co.uk)
-- Project website: https://github.com/healthtech-innovations/medassist-ai
-
-**Timeline**
-- Project start: January 2024
-- Expected prototype completion: August 2024
-- Target pilot deployment: January 2025
-- Full deployment target: June 2025
-
-**Current Development Stage**
+**Current Development Stage** (choose from Concept, Prototype, Release Development, or Operations)
 <!--%CURRENT_STAGE-->Concept
 
-**Project Description**
-- AI-powered diagnostic support system to assist GPs in primary care settings
-- Analyses patient symptoms, medical history, and basic test results to suggest potential diagnoses and recommended next steps
-- Designed to reduce diagnostic errors and improve consistency of care across different practice settings
-- Target metric: Reduce missed diagnoses by 25% whilst maintaining GP decision-making authority
+**Team/Organisation**
+- Lead organisation or team: Imperial College Healthcare Innovation Lab
+- Project website or repository: https://github.com/ICH-Innovation/medassist-ai
 
 ### Context
 
 **Purpose**
-- Supports GPs in making more accurate and timely diagnoses during routine consultations
-- Provides evidence-based treatment suggestions and referral recommendations
-- Helps identify patients who may need urgent specialist care
-- Aims to reduce health inequalities by ensuring consistent diagnostic quality regardless of GP experience level
+Describe the purpose of this system from the perspective of its users. What need or goal does this AI system address?
+To assist clinicians in making diagnostic decisions by analysing patient symptoms, medical history, and test results to suggest potential diagnoses and recommended next steps. The system aims to reduce diagnostic errors and support less experienced clinicians with expert-level guidance.
 
 **Environment**
-- Deployed within NHS primary care practices across England
-- Integrated with existing clinical systems (EMIS, SystmOne)
-- Used during patient consultations with real-time diagnostic support
-- Operates under strict clinical governance and MHRA medical device regulations
-- Patient safety-critical environment where diagnostic errors can have serious health consequences
-
-*(Note: The Framework does not provide legal or regulatory advice. Projects should ensure they adhere to all legal and regulatory requirements for the project)*
+Describe the context in which this system will operate (e.g. industry, work area, geographies, etc)
+NHS hospital emergency departments and GP practices across England, initially piloting in three London teaching hospitals. The system will integrate with existing Electronic Health Record (EHR) systems and be used during patient consultations.
 
 **Stakeholders**
-- **Direct users**: General Practitioners, Practice Nurses, Clinical Decision Units
-- **Affected parties**: Patients receiving care, NHS Trusts, Clinical Commissioning Groups
-- **Decision makers**: NHS Digital, MHRA, Practice Partners, Medical Directors
-- **Vulnerable groups**: Elderly patients, patients with multiple comorbidities, patients with rare conditions, non-English speakers
+List all groups who will be impacted by this system (direct users, affected parties, decision makers)
+Primary users: Emergency department clinicians, GPs, junior doctors, specialist consultants
+Secondary stakeholders: Patients, hospital administrators, NHS Digital, medical regulators, AI safety auditors
+Affected parties: Patient families, medical insurance providers, legal teams
+
+Identify any vulnerable or high-risk groups
+Patients with complex comorbidities, elderly patients with multiple conditions, paediatric patients, patients with rare diseases, non-English speaking patients, patients with mental health conditions affecting communication
+
+Note any specific cultural or demographic groups who are intended users or be affected
+Diverse patient population across London including various ethnic communities, refugees and asylum seekers, patients with varying health literacy levels. Clinical users include international medical graduates and clinicians from different medical training backgrounds.
 
 ## Categorisation of use-case
 
 *(Combination of Purpose + Environment)*
 
-**Purpose/Role** *(What role does this AI play in users' lives?)*
-Select ALL that apply:
-<!--%PURPOSE_CODES-->
-- [x] **Creates (C)** - Makes things for users (content creation, synthesis)
+**Purpose/Role** (What role does this AI play in users' lives?. Select ALL that apply:)
+<!--%PURPOSE_CODE-->
+- [ ] **Creates (C)** - Makes new things for users (new content creation)
 - [x] **Decides (D)** - Chooses for users (decision making, recommendations)
-- [ ] **Finds (F)** - Finds things for users (identification, discovery, information retrieval)
+- [x] **Finds (F)** - Finds things for users (identification, discovery, information retrieval)
 - [x] **Predicts (P)** - Tells users what's coming (prediction, monitoring)
-- [x] **Helps (H)** - Helps users do things (digital assistance, performance improvement)
+- [x] **Helps (H)** - Provides guidance to users (digital assistance, performance improvement)
 - [ ] **Acts (A)** - Takes actions for users (process automation, robotic automation)
-- [x] **Multiple (M)** - System performs multiple roles at different times or upon request
+- [x] **Explains (E)** - Makes things clearer for users (summarising, interpretation, synthesising)
+- [ ] **Translates (T)** - Converts input from one form to another (language translation, modality conversion, input recognition)
 - [ ] **Unknown (?)** - The purpose or role of this system is not known or decided
 
-**Environment** *(In what context is the system operating?)*
-Select ONE (or ? for unknown):
+**Environment** (In what context is the system operating? Select ONE or ? for unknown)
 <!--%ENVIRONMENT_CODE-->
 - [ ] **Low-stakes (L)** - Entertainment, convenience, internal tools
 - [ ] **Social-facing (S)** - Public interaction, reputation, relationships
@@ -75,57 +61,55 @@ Select ONE (or ? for unknown):
 - [ ] **Unknown (?)** - The environment for the use-case is not known or decided
 
 ## Categorisation of System Design Forces
-*(Combination of Control + Capability considerations)*
 
-***Note**: Control relationship combines three underlying dimensions:*
-- ***Autonomy**: Supervised → Monitored → Independent*
-- ***Self-learning**: Static → Adaptive/Agentic → Self-modifying
-- ***Persistence**: Transactional → Stateful → Persistent operation*
+**Autonomy level** (What level of autonomy does the system have in performing actions? Select ONE or ? for unknown)
+<!--%AUTONOMY_CODE-->
+- [x] **Supervised(S)** - Human approves each action
+- [ ] **Monitored (M)** - Human has oversight and can intervene, but system operates independently
+- [ ] **Independent (I)** - Performs actions without specific human input or oversight
+- [ ] **Unknown (?)** - The autonomy level of the system is not known or decided
 
-**Control Relationship** *(What's the human-system control dynamic?)*
-Select ONE (or ? for unknown):
-<!--%CONTROL_CODE-->
-- [ ] **Human-Controlled (C)** - Supervised autonomy + Static modification + Transactional interaction
-- [x] **Human-Guided (G)** - Monitored autonomy + Adaptive/agentic + Stateful interaction
-- [ ] **System-Independence (I)** - Independent/Agent autonomy + Self-modifying + Persistent operation
-- [ ] **Unknown (?)** - The control relationship is not known or decided
+**Self-learning level** (What ability does the system have to change its own execution to reflect updated understanding or experiences? Select ONE or ? for unknown)
+<!--%SELF_LEARNING_CODE-->
+- [ ] **Static(S)** - Fixed capabilities, doesn't learn or change during normal operations.
+- [x] **Adaptive/Agentic (M)** - Uses memory type structures or similar to improve responses and approaches.
+- [ ] **Self-modifying (I)** - Can modify its own capabilities, processes or objectives.
+- [ ] **Unknown (?)** - The self-learning level of the system is not known or decided.
 
-**Capability Level** (What's the sophistication and power of the underlying system?)
-Select ONE (or ? for unknown):
+**Persistence level** (What level of persistence does the system have in for users or context? Select ONE or ? for unknown)
+<!--%PERSISTENCE_CODE-->
+- [ ] **Transactional (T)** - Stateless, each interaction or session is independent.
+- [x] **Stateful (S)** - Remembers context/history, builds continuity
+- [ ] **Persistent (P)** - Ongoing pursuit of goals and task execution without requiring prompting
+- [ ] **Unknown (?)** - The persistence level of the system is not known or decided.
+
+**Capability Level** (What's the sophistication and power of the underlying system? Select ONE or ? for unknown)
 <!--%CAPABILITY_CODE-->
 - [ ] **Basic (B)** - Simple algorithms, narrow processing (rule-based, basic ML). Does what you expect, clear decisions, predictable failures
-- [x] **Advanced (A)** - Sophisticated models with reasoning (LLMs, multimodal models, complex ML), some surprises, novel failure modes. 
-- [ ] **Emergent (E)** - Systems with unexpected or hard-to-predict capabilities. May surprise you with new capabilities, unclear boundaries 
+- [x] **Advanced (A)** - Sophisticated models with a degree of simulated reasoning (LLMs, multimodal models, complex ML), some surprises, novel failure modes. 
+- [ ] **Emergent (E)** - Systems with unexpected or hard-to-predict capabilities. May produce new capabilities, unclear boundaries 
 - [ ] **Unknown (?)** - The capability level of the system is not known or decided
 
+**Data Sources** (select all that apply)
+<!--%DATA_CODE-->
+- [x] **Controlled Internal(I)** - Operating organisation's own data
+- [x] **User-Provided(U)** - End users input
+- [x] **Verified Public(V)** - Vetted datasets, government, academic sources
+- [ ] **Unverified Public(W)** - Scraped web content, social media
+- [x] **Third-Party Licensed(T)**
+
+**Other Behaviours** (What other system behaviours are relevant? Select any/all applicable, leave blank if none apply)
+<!--%OTHER_SYS_CODE-->
+- [ ] **Agentic Interaction (A)** - System will operate in an agentic colony structure (i.e. communicating with and sharing work with other cognitive agents)
+- [ ] **Upstream (U)** - System operates upstream of other cognitive agents (i.e. the system will call other AI to execute tasks).
+- [ ] **Downstream (D)** - System is downstream of other cognitive agents (i.e. the system is called by other AI to execute tasks).
 
 ## Categorisation of Stakeholder and Cultural Forces
 
-Select cultural contexts (can select multiple or ALL for universal):
+At this moment Stakeholder and Cultural forces are not in scope for the framework and default to "All":
 
-**Europe & Anglo**
-- [x] **Anglo (ANG)** - [ ] **Latin Europe (LAE)** - [ ] **Nordic Europe (NOR)**
-- [ ] **Germanic Europe (GER)** - [ ] **Eastern Europe (EEU)** - [ ] **Jewish/Hebrew (HEB)**
+<!--%CAPABILITY_CODE-->
+- [X] **ALL STAKEHOLDERS GROUPS (ALL)**
 
-**Asia & Middle East**
-- [ ] **Confucian Asia (CAS)** - [ ] **Korean-Japanese (KJP)** - [ ] **Southern Asia (SAS)**
-- [ ] **Southeast Asia (SEA)** - [ ] **Central Asia (CAZ)** - [ ] **Persian/Iranic (PER)**
-- [ ] **Arab (ARA)** - [ ] **Turkic (TUR)** - [ ] **Pacific Islander (PAC)**
-
-**Americas**
-- [ ] **Latin America (LAM)** - [ ] **North American Indigenous (NAI)** - [ ] **South American Indigenous (SAI)**
-
-**Africa & Oceania**
-- [ ] **Sub-Saharan Africa (SSA)** - [ ] **African Indigenous (AFI)** - [ ] **Australian Indigenous (AUI)**
-
-**Arctic**
-- [ ] **Arctic Indigenous (ARI)** - [ ] **Indigenous Generic (IND)** 
-
-- [ ] **ALL CULTURES (ALL)**
-
-
-**Classification Notes**: 
-- **Arrays allowed**: Projects can use [CDF] for multiple purposes or [ANG,LAE] for multiple cultures
-- **Unknown (?) usage**: Use when classification help is needed
-- **Pattern matching**: System will find relevant patterns based on classification
-- **Project-specific details**: Team, timeline, funding, and contact info will not be included in reusable pattern documents
+<!--%CULTURES_CODE-->
+- [X] **ALL CULTURES (ALL)**
